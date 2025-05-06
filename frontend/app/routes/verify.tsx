@@ -8,7 +8,11 @@ import { eq } from "drizzle-orm";
 export default function Verify() {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
-  const [status, setStatus] = useState({ loading: true, error: null, success: false });
+  const [status, setStatus] = useState<{ loading: boolean, error: string | null, success: boolean }>({ 
+    loading: true, 
+    error: null, 
+    success: false 
+  });
 
   useEffect(() => {
     async function verify() {
