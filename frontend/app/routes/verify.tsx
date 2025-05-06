@@ -1,5 +1,6 @@
 
 import { useSearchParams } from "react-router";
+import { useState, useEffect } from "react";
 import { db } from "../db";
 import { profileTable } from "../db/schema";
 import { eq } from "drizzle-orm";
