@@ -1,0 +1,36 @@
+9:53:30 PM [vite] (client) Pre-transform error: Failed to resolve import "cloudflare:sockets" from "node_modules/.vite/deps/chunk-FRAHTOO2.js?v=bcf41729". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/runner/workspace/frontend/node_modules/.vite/deps/chunk-FRAHTOO2.js?v=bcf41729:3090:36
+  3088|              this.once("connect", connectListener);
+  3089|            const options = this.ssl ? { secureTransport: "starttls" } : {};
+  3090|            const mod = await import("cloudflare:sockets");
+     |                                     ^
+  3091|            const connect = mod.connect;
+  3092|            this._cfSocket = connect(`${host}:${port}`, options);
+9:53:30 PM [vite] (client) Pre-transform error: Failed to resolve import "cloudflare:sockets" from "node_modules/.vite/deps/chunk-FRAHTOO2.js?v=bcf41729". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/runner/workspace/frontend/node_modules/.vite/deps/chunk-FRAHTOO2.js?v=bcf41729:3090:36
+  3088|              this.once("connect", connectListener);
+  3089|            const options = this.ssl ? { secureTransport: "starttls" } : {};
+  3090|            const mod = await import("cloudflare:sockets");
+     |                                     ^
+  3091|            const connect = mod.connect;
+  3092|            this._cfSocket = connect(`${host}:${port}`, options); (x2)
+9:53:30 PM [vite] Internal server error: Failed to resolve import "cloudflare:sockets" from "node_modules/.vite/deps/chunk-FRAHTOO2.js?v=bcf41729". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/runner/workspace/frontend/node_modules/.vite/deps/chunk-FRAHTOO2.js?v=bcf41729:3090:36
+  3088|              this.once("connect", connectListener);
+  3089|            const options = this.ssl ? { secureTransport: "starttls" } : {};
+  3090|            const mod = await import("cloudflare:sockets");
+     |                                     ^
+  3091|            const connect = mod.connect;
+  3092|            this._cfSocket = connect(`${host}:${port}`, options);
+      at TransformPluginContext._formatLog (file:///home/runner/workspace/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42499:41)
+      at TransformPluginContext.error (file:///home/runner/workspace/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42496:16)
+      at normalizeUrl (file:///home/runner/workspace/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40475:23)
+      at file:///home/runner/workspace/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40594:37
+      at async Promise.all (index 3)
+      at TransformPluginContext.transform (file:///home/runner/workspace/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40521:7)
+      at EnvironmentPluginContainer.transform (file:///home/runner/workspace/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42294:18)
+      at loadAndTransform (file:///home/runner/workspace/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:35735:27)
+      at viteTransformMiddleware (file:///home/runner/workspace/frontend/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:37250:24)
