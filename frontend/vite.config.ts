@@ -8,10 +8,9 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5000,
-    strictPort: true,
-    hmr: {
-      port: 5000,
-      clientPort: 443
-    }
+    strictPort: true
+  },
+  optimizeDeps: {
+    include: ['@remix-run/router']
   }
 });
