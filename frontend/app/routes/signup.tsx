@@ -49,6 +49,14 @@ export async function action({ request }: ActionFunctionArgs) {
     const activationToken = crypto.randomBytes(16).toString('hex');
     const userId = uuidv7();
 
+    console.log({
+                 profileId: userId,
+                 profileName: name,
+                 profileEmail: email,
+                 profilePasswordHash: passwordHash,
+                 profileActivationToken: activationToken,
+               })
+
     // Create new user profile
     await db.insert(profileTable).values({
       profileId: userId,

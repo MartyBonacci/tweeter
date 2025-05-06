@@ -1,0 +1,82 @@
+{
+  "id": "3c2eb728-33ab-49f4-88e6-245931ddac62",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.profile": {
+      "name": "profile",
+      "schema": "",
+      "columns": {
+        "profileId": {
+          "name": "profileId",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "profileAbout": {
+          "name": "profileAbout",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "profileActivationToken": {
+          "name": "profileActivationToken",
+          "type": "char(32)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "profileEmail": {
+          "name": "profileEmail",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "profileImageUrl": {
+          "name": "profileImageUrl",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "profileName": {
+          "name": "profileName",
+          "type": "varchar(127)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "profilePasswordHash": {
+          "name": "profilePasswordHash",
+          "type": "char(97)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "profile_profileEmail_unique": {
+          "name": "profile_profileEmail_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "profileEmail"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
