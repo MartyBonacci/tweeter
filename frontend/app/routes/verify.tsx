@@ -1,22 +1,51 @@
-// Assuming this code is part of a larger application using a database or similar method for user profiles.  This example uses a hypothetical 'user' object and a 'set' method.
-// Adapt as necessary for your specific implementation.
 
-const user = {
-  profileIsActive: false,
-  profileActivationToken: 'someToken',
-  // ... other user properties
-};
+import { useSearchParams } from "react-router-dom";
+import { db } from "../db";
+import { profileTable } from "../db/schema";
+import { eq } from "drizzle-orm";
 
-const verifyEmail = async (token) => {
-  // ... Logic to verify the email using the token ... 
-  if ( /* email verification successful */ ) {
-      await user.set({ profileActivationToken: null }); //Only removes the token
-  } else {
-      // Handle email verification failure
-      console.error("Email verification failed.");
-  }
-};
+export default function Verify() {
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get("token");
 
+  const verifyEmail = async (token: string | null) => {
+    if (!token) {
+      return { error: "No verification token provided" };
+    }
 
-//Example Usage
-verifyEmail('someToken');
+    try {
+      // Find user with matching token
+      const [user] = await db
+        .select()
+        .from(profileTable)
+        .where(eq(profileTable.profileActivationToken, token))
+        .limit(1);
+
+      if (!user) {
+        return { error: "Invalid or expired verification token" };
+      }
+
+      // Update user to remove token (marking as verified)
+      await db
+        .update(profileTable)
+        .set({ profileActivationToken: null })
+        .where(eq(profileTable.profileId, user.profileId));
+
+      return { success: true };
+    } catch (error) {
+      console.error("Verification error:", error);
+      return { error: "Failed to verify email" };
+    }
+  };
+
+  return (
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+      <h1 className="text-2xl font-bold mb-4">Email Verification</h1>
+      {token ? (
+        <div>Verifying your email...</div>
+      ) : (
+        <div className="text-red-600">No verification token provided</div>
+      )}
+    </div>
+  );
+}
