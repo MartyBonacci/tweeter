@@ -1,5 +1,5 @@
 modules = ["nodejs-20", "web"]
-run = "cd react-router-app && npm run dev"
+run = "cd frontend && npm run dev"
 
 [nix]
 channel = "stable-24_05"
@@ -21,4 +21,4 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd react-router-app && npm run dev"
+args = "cd frontend && npm run dev"
