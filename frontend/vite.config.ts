@@ -1,21 +1,17 @@
-import { reactRouter } from "@react-router/dev/vite";
-import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  plugins: [react(), tsconfigPaths()],
   server: {
     host: '0.0.0.0',
     port: 5000,
-    allowedHosts: [
-      '391d5fe2-0f01-4c8b-b0b6-c18e5ad99a70-00-ujolnz7mlczt.worf.repl.co'
-    ],
-    proxy: {
-      '/api': {
-        target: 'http://0.0.0.0:5000',
-        changeOrigin: true
-      }
+    strictPort: true,
+    hmr: {
+      port: 5000,
+      clientPort: 443
     }
   }
 });
