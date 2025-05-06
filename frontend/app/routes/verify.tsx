@@ -1,5 +1,5 @@
 
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "@react-router/node";
 import { db } from "../db";
 import { profileTable } from "../db/schema";
 import { eq } from "drizzle-orm";
