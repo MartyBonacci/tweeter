@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
+    "argon2": "^0.41",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.43.1",
     "isbot": "^5.1.27",

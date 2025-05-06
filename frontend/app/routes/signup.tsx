@@ -3,12 +3,11 @@ import { useState } from "react";
 import type { ActionFunctionArgs } from "react-router";
 import { Form, useActionData, useNavigation } from "react-router";
 import { uuidv7 } from "uuidv7";
-import pkg from "@node-rs/argon2";
-const { argon2id } = pkg;
 import crypto from 'crypto';
 import { db } from "../db";
 import { profileTable } from "../db/schema";
 import { eq } from "drizzle-orm";
+import * as argon2 from "argon2";
 
 interface ActionData {
   success?: boolean;
@@ -45,17 +44,16 @@ export async function action({ request }: ActionFunctionArgs) {
     }
 
     // Generate secure values
-    const passwordHash = await argon2id.hash(password);
+    const passwordHash = await argon2.hash(
+        password,
+        {
+          type: argon2.argon2id,
+          memoryCost: 2 ** 16,
+          hashLength: 32
+        })
     const activationToken = crypto.randomBytes(16).toString('hex');
     const userId = uuidv7();
 
-    console.log({
-                 profileId: userId,
-                 profileName: name,
-                 profileEmail: email,
-                 profilePasswordHash: passwordHash,
-                 profileActivationToken: activationToken,
-               })
 
     // Create new user profile
     await db.insert(profileTable).values({
