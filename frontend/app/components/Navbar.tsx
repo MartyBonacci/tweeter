@@ -51,6 +51,11 @@ export function MainNavbar() {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link to="/signup" className="block py-2 px-3 text-white bg-blue-700 rounded-lg hover:bg-blue-800 md:hover:bg-blue-800">
+                Sign Up
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
