@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "web"]
+modules = ["nodejs-20", "web", "postgresql-16"]
 run = "cd frontend && npm run dev"
 
 [nix]
@@ -10,6 +10,10 @@ run = ["sh", "-c", "npm run dev"]
 [[ports]]
 localPort = 5000
 externalPort = 5000
+
+[[ports]]
+localPort = 5001
+externalPort = 3000
 
 [[ports]]
 localPort = 5173
