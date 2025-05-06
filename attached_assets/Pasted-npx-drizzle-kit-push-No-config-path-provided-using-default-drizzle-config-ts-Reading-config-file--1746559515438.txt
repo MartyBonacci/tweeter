@@ -1,0 +1,160 @@
+npx drizzle-kit push
+No config path provided, using default 'drizzle.config.ts'
+Reading config file '/home/runner/workspace/frontend/drizzle.config.ts'
+_ZodError: [
+  {
+    "expected": "'postgresql' | 'mysql' | 'sqlite' | 'turso' | 'singlestore' | 'gel'",
+    "received": "undefined",
+    "code": "invalid_type",
+    "path": [
+      "dialect"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_union",
+    "unionErrors": [
+      {
+        "issues": [
+          {
+            "code": "invalid_union",
+            "unionErrors": [
+              {
+                "issues": [
+                  {
+                    "received": "pg",
+                    "code": "invalid_literal",
+                    "expected": "d1-http",
+                    "path": [
+                      "driver"
+                    ],
+                    "message": "Invalid literal value, expected \"d1-http\""
+                  }
+                ],
+                "name": "ZodError"
+              },
+              {
+                "issues": [
+                  {
+                    "received": "pg",
+                    "code": "invalid_literal",
+                    "expected": "expo",
+                    "path": [
+                      "driver"
+                    ],
+                    "message": "Invalid literal value, expected \"expo\""
+                  }
+                ],
+                "name": "ZodError"
+              },
+              {
+                "issues": [
+                  {
+                    "received": "pg",
+                    "code": "invalid_literal",
+                    "expected": "durable-sqlite",
+                    "path": [
+                      "driver"
+                    ],
+                    "message": "Invalid literal value, expected \"durable-sqlite\""
+                  }
+                ],
+                "name": "ZodError"
+              }
+            ],
+            "path": [
+              "driver"
+            ],
+            "message": "Invalid input"
+          }
+        ],
+        "name": "ZodError"
+      },
+      {
+        "issues": [
+          {
+            "code": "invalid_union",
+            "unionErrors": [
+              {
+                "issues": [
+                  {
+                    "received": "pg",
+                    "code": "invalid_literal",
+                    "expected": "aws-data-api",
+                    "path": [
+                      "driver"
+                    ],
+                    "message": "Invalid literal value, expected \"aws-data-api\""
+                  }
+                ],
+                "name": "ZodError"
+              },
+              {
+                "issues": [
+                  {
+                    "received": "pg",
+                    "code": "invalid_literal",
+                    "expected": "pglite",
+                    "path": [
+                      "driver"
+                    ],
+                    "message": "Invalid literal value, expected \"pglite\""
+                  }
+                ],
+                "name": "ZodError"
+              }
+            ],
+            "path": [
+              "driver"
+            ],
+            "message": "Invalid input"
+          }
+        ],
+        "name": "ZodError"
+      }
+    ],
+    "path": [
+      "driver"
+    ],
+    "message": "Invalid input"
+  }
+]
+    at get error [as error] (/home/runner/workspace/frontend/node_modules/drizzle-kit/bin.cjs:2142:28)
+    at drizzleConfigFromFile (/home/runner/workspace/frontend/node_modules/drizzle-kit/bin.cjs:17523:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async preparePushConfig (/home/runner/workspace/frontend/node_modules/drizzle-kit/bin.cjs:17037:29)
+    at async run (/home/runner/workspace/frontend/node_modules/drizzle-kit/bin.cjs:91903:51) {
+  issues: [
+    {
+      expected: "'postgresql' | 'mysql' | 'sqlite' | 'turso' | 'singlestore' | 'gel'",
+      received: 'undefined',
+      code: 'invalid_type',
+      path: [Array],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_union',
+      unionErrors: [Array],
+      path: [Array],
+      message: 'Invalid input'
+    }
+  ],
+  addIssue: [Function (anonymous)],
+  addIssues: [Function (anonymous)],
+  errors: [
+    {
+      expected: "'postgresql' | 'mysql' | 'sqlite' | 'turso' | 'singlestore' | 'gel'",
+      received: 'undefined',
+      code: 'invalid_type',
+      path: [Array],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_union',
+      unionErrors: [Array],
+      path: [Array],
+      message: 'Invalid input'
+    }
+  ]
+}
+ Error  Please specify 'dialect' param in config file
