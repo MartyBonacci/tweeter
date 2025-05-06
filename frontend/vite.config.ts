@@ -7,9 +7,12 @@ export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   server: {
     host: '0.0.0.0',
-    allowedHosts: [
-      '391d5fe2-0f01-4c8b-b0b6-c18e5ad99a70-00-ujolnz7mlczt.worf.replit.dev',
-      '391d5fe2-0f01-4c8b-b0b6-c18e5ad99a70-00-ujolnz7mlczt.worf.repl.co'
-    ]
+    https: false,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true
+      }
+    }
   }
 });
