@@ -64,7 +64,11 @@ export async function action({ request }: ActionFunctionArgs) {
       profileActivationToken: activationToken,
     });
 
-    return { success: true };
+    const { sendVerificationEmail } = await import('../utils/email.server');
+    const emailInfo = await sendVerificationEmail(email, activationToken);
+    
+    console.log('Verification email preview:', nodemailer.getTestMessageUrl(emailInfo));
+    return { success: true, message: "Account created! Check your email (or server logs for preview link)" };
   } catch (error) {
     console.error('Signup error:', error);
     return { error: "Failed to create account" };
