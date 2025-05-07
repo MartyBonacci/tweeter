@@ -48,15 +48,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import routes from "./routes";
+
+const router = createBrowserRouter(routes);
+
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <MainNavbar />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
   );
 }
 
